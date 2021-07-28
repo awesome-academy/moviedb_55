@@ -89,4 +89,5 @@ fastlane/test_output
 
 iOSInjectionProject/
 /MovieDBApp/Pods
+/MovieDBApp/MovieDBApp/Keys.plist
 .DS_Store
