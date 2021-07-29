@@ -11,10 +11,11 @@ struct MovieURLs {
     static let shared = MovieURLs()
     
     private let baseURL = "https://api.themoviedb.org/3"
+    let baseImageURL = "https://image.tmdb.org/t/p/w200"
     
     private init() {}
     
-    func getAllMovieByCategory(category: String, page: Int) -> String {
-        return "\(baseURL)/movie/\(category)?language=en-US&page=\(page)"
+    func getAllMovieByCategory(category: MovieCategory, page: Int) -> String {
+        return "\(baseURL)/movie/\(category.rawValue)?language=en-US&page=\(page)"
     }
 }

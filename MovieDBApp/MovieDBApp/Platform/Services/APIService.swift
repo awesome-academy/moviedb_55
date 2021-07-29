@@ -14,25 +14,20 @@ class APIService {
     static let shared = APIService()
     
     private init() {}
-    
-    func request<T: Mappable>(URL: String, responseType: T.Type) -> Observable<T> {
+
+    func request<T: Mappable>(url: String, responseType: T.Type) -> Observable<T> {
         guard
             let path = Bundle.main.path(forResource: "Keys", ofType: "plist"),
             let dict = NSDictionary(contentsOfFile: path),
             let API_KEY = dict["API_KEY"] as? String
-        else { fatalError() }
+        else { fatalError("Get API key failed") }
         
         let params = [
             "api_key": API_KEY
         ]
         
         return Observable.create { observer in
-            AF.request(
-                URL,
-                method: .get,
-                parameters: params,
-                encoding: URLEncoding.default
-            )
+            AF.request(url, parameters: params, encoding: URLEncoding.default)
             .validate(statusCode: 200 ..< 300)
             .responseJSON { (response) in
                 switch response.result {
@@ -44,7 +39,6 @@ class APIService {
                     observer.onError(error)
                 }
             }
-            
             return Disposables.create()
         }
     }

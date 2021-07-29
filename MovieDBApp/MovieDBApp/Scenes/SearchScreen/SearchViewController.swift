@@ -10,10 +10,19 @@ import UIKit
 class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
+        setupView()
     }
     
-    private func configureUI() {
+    private func setupView() {
         view.backgroundColor = .systemBackground
+        navigationItem.title = "Search"
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+}
+
+extension SearchViewController {
+    static func instance(navigationController: UINavigationController) -> SearchViewController {
+        let vc = SearchViewController()
+        return vc
     }
 }
