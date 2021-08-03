@@ -9,10 +9,10 @@ import Foundation
 import RxDataSources
 
 enum MoviesSection {
-    case movies(items: [SectionItem])
+    case movies(items: [SectionItemMovie])
 }
 
-enum SectionItem {
+enum SectionItemMovie {
     case nowPlaying(model: MovieSession)
     case upcoming(model: MovieSession)
     case popular(mode: MovieSession)
@@ -20,9 +20,9 @@ enum SectionItem {
 }
 
 extension MoviesSection: SectionModelType {
-    typealias Item = SectionItem
+    typealias Item = SectionItemMovie
     
-    var items: [SectionItem] {
+    var items: [SectionItemMovie] {
         switch self {
         case .movies(let items):
             return items.map { $0 }
