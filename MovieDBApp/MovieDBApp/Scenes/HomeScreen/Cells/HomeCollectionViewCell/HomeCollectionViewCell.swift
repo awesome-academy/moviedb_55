@@ -60,9 +60,7 @@ class HomeCollectionViewCell: UICollectionViewCell, NibReusable {
         movieImageViewBackground.loadImageWithUrl(path: movie.poster)
         movieImageView.loadImageWithUrl(path: movie.poster)
         movieTitle.text = title == MovieCategory.nowPlaying.getTitle ? "" : movie.title
-        
-        let year = movie.dayRelease.split { $0 == "-" }.map(String.init)
-        movieYearRelease.text = title == MovieCategory.nowPlaying.getTitle ? "" : "(\(year.first ?? "1900"))"
+        movieYearRelease.text = title == MovieCategory.nowPlaying.getTitle ? "" : "(\(movie.dayRelease.getYear()))"
         configureUI()
     }
     

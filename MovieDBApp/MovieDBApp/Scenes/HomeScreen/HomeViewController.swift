@@ -24,8 +24,12 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
         bindViewModel()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupView()
     }
     
     private func setupView() {
@@ -40,17 +44,16 @@ class HomeViewController: UIViewController {
             $0.separatorInset = UIEdgeInsets(top: 0, left: UIScreen.main.bounds.width, bottom: 0, right: 0)
             $0.delegate = self
         }
-        
-        dataSource = DataSource(configureCell: configureCell)
     }
     
-    func bindViewModel() {
+    private func bindViewModel() {
         let input = HomeViewModel.Input(
             loadTrigger: Driver.just(()),
             selectMovieTrigger: selectMovieTrigger.asDriver(onErrorJustReturn: 0)
         )
         
         let output = viewModel.transform(input: input)
+        dataSource = DataSource(configureCell: configureCell)
         
         output.movies
             .drive(movieTableView.rx.items(dataSource: dataSource))

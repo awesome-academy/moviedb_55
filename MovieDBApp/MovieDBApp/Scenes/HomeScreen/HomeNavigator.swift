@@ -15,7 +15,7 @@ struct HomeNavigator: HomeNavigatorType {
     let navigationController: UINavigationController
     
     func toDetailScreen(id: Int) {
-        let detailVC = MovieDetailViewController.instance()
-        navigationController.presentVC(vc: detailVC, duration: 0.32, type: .fromRight)
+        let vc = MovieDetailViewController.instance(navigationController: navigationController, movieId: id)
+        navigationController.pushViewController(vc, animated: true)
     }
 }

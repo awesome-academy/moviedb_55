@@ -18,4 +18,8 @@ struct MovieURLs {
     func getAllMovieByCategory(category: MovieCategory, page: Int) -> String {
         return "\(baseURL)/movie/\(category.rawValue)?language=en-US&page=\(page)"
     }
+    
+    func getMovieDetailById(id: Int) -> String {
+        return "\(baseURL)/movie/\(id)?append_to_response=videos,similar_movies,credits"
+    }
 }
