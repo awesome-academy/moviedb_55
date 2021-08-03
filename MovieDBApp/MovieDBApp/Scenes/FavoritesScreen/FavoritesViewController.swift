@@ -10,10 +10,19 @@ import UIKit
 class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
+        setupView()
     }
     
-    private func configureUI() {
+    private func setupView() {
         view.backgroundColor = .systemBackground
+        navigationItem.title = "Favorites"
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+}
+
+extension FavoritesViewController {
+    static func instance(navigationController: UINavigationController) -> FavoritesViewController {
+        let vc = FavoritesViewController()
+        return vc
     }
 }

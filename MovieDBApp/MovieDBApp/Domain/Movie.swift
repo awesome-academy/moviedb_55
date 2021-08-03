@@ -9,6 +9,11 @@ import Foundation
 import ObjectMapper
 import Then
 
+struct MovieSession {
+    var category: MovieCategory = .none
+    var movies: [Movie] = []
+}
+
 struct MovieResponse: Mappable {
     var results: [Movie]?
     

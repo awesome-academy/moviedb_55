@@ -14,40 +14,31 @@ class TabBarController: UITabBarController {
         configureViewControllers()
     }
     
-    private func createViewController(textIcon: String,
-                              nameIcon: String,
-                              vc: UIViewController) -> UINavigationController {
-        let nav = UINavigationController(rootViewController: vc)
-        vc.navigationItem.title = textIcon == "Home" ? "Movies" : textIcon
-        nav.navigationBar.prefersLargeTitles = true
-        
-        let title = UILabel().then {
-            $0.font = .systemFont(ofSize: 16)
-            $0.text = textIcon
-        }
-        
-        vc.tabBarItem = UITabBarItem(title: title.text,
-                                         image: UIImage(systemName: nameIcon),
-                                         selectedImage: UIImage(systemName: "\(nameIcon).fill"))
-        return nav
+    private func createTabbarItem(title: String, nameIcon: String) -> UITabBarItem {
+        return UITabBarItem(title: title,
+                            image: UIImage(systemName: nameIcon),
+                            selectedImage: UIImage(systemName: "\(nameIcon).fill"))
     }
     
     private func configureViewControllers() {
-        let homeVC = HomeViewController()
-        let navHomeVC = createViewController(textIcon: "Home",
-                                             nameIcon: "house",
-                                             vc: homeVC)
+        // home
+        let homeNavigation = UINavigationController()
+        let homeVC = HomeViewController.instance(navigationController: homeNavigation)
+        homeNavigation.viewControllers.append(homeVC)
+        homeVC.tabBarItem = createTabbarItem(title: "Home", nameIcon: "house")
         
-        let searchVC = SearchViewController()
-        let navSearchVC = createViewController(textIcon: "Search",
-                                               nameIcon: "magnifyingglass.circle",
-                                               vc: searchVC)
+        // search
+        let searchNavigation = UINavigationController()
+        let searchVC = SearchViewController.instance(navigationController: searchNavigation)
+        searchNavigation.viewControllers.append(searchVC)
+        searchVC.tabBarItem = createTabbarItem(title: "Search", nameIcon: "magnifyingglass.circle")
         
-        let favoritesVC = FavoritesViewController()
-        let navFavoritesVC = createViewController(textIcon: "Favorites",
-                                                  nameIcon: "heart",
-                                                  vc: favoritesVC)
-        
-        viewControllers = [navHomeVC, navSearchVC, navFavoritesVC]
+        //favorites
+        let favoriteNavigation = UINavigationController()
+        let favoritesVC = FavoritesViewController.instance(navigationController: favoriteNavigation)
+        favoriteNavigation.viewControllers.append(favoritesVC)
+        favoritesVC.tabBarItem = createTabbarItem(title: "Favorites", nameIcon: "heart")
+    
+        viewControllers = [homeNavigation, searchNavigation, favoriteNavigation]
     }
 }
