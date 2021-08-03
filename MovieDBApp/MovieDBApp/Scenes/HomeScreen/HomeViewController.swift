@@ -13,7 +13,7 @@ import Reusable
 import NSObject_Rx
 import RxDataSources
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
     typealias DataSource = RxTableViewSectionedReloadDataSource<MoviesSection>
     var viewModel: HomeViewModel!
     private var dataSource: DataSource!

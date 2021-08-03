@@ -19,6 +19,7 @@ PODS:
   - SDWebImage/Core (5.11.1)
   - SnapKit (5.0.1)
   - Then (2.7.0)
+  - youtube-ios-player-helper (1.0.3)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4)
@@ -30,6 +31,7 @@ DEPENDENCIES:
   - SDWebImage (~> 5.0)
   - SnapKit (~> 5.0.0)
   - Then
+  - youtube-ios-player-helper
 
 SPEC REPOS:
   trunk:
@@ -43,6 +45,7 @@ SPEC REPOS:
     - SDWebImage
     - SnapKit
     - Then
+    - youtube-ios-player-helper
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
@@ -55,7 +58,8 @@ SPEC CHECKSUMS:
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   Then: acfe0be7e98221c6204e12f8161459606d5d822d
+  youtube-ios-player-helper: 0185c57db23c80d63d6ca11251d110abb8a4ca61
 
-PODFILE CHECKSUM: 026c27f3cfc40590b749bbbe6a7aabb3d294d508
+PODFILE CHECKSUM: 943fdc0fb4267392effb42921f709fd4e8c81a48
 
 COCOAPODS: 1.10.1

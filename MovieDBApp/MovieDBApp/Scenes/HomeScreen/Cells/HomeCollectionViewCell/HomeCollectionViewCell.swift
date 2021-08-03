@@ -11,7 +11,7 @@ import SDWebImage
 import Reusable
 import SnapKit
 
-class HomeCollectionViewCell: UICollectionViewCell, NibReusable {
+final class HomeCollectionViewCell: UICollectionViewCell, NibReusable {
     private var titleCategory = ""
     
     private let movieImageViewBackground = UIImageView().then {

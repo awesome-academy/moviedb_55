@@ -9,7 +9,7 @@ import UIKit
 import Then
 import Reusable
 
-class HomeTableViewCell: UITableViewCell, NibReusable {
+final class HomeTableViewCell: UITableViewCell, NibReusable {
     private var model: MovieSession!
     var onItemMovieTapped: ((Int) -> Void)?
     
