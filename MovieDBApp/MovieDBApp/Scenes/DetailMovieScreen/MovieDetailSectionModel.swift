@@ -14,11 +14,10 @@ enum MovieDetailSectionModel {
 
 enum SectionItem {
     case trailer(linkId: String)
-    case info(name: String, year: String, numberRating: Double, description: String)
+    case info(movieDetail: MovieDetail)
     case casts(credits: Credits)
     case movieRecommended(movie: SimilarMovies)
 }
-
 
 extension MovieDetailSectionModel: SectionModelType {
     typealias Item = SectionItem

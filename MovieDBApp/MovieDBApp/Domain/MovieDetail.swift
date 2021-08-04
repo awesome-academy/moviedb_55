@@ -43,4 +43,3 @@ extension MovieDetail: Mappable {
         similarMovies   <- map["similar_movies"]
     }
 }
-

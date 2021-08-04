@@ -11,14 +11,17 @@ import RxCocoa
 
 struct MovieDetailViewModel {
     let useCase: MovieDetailUseCaseType
+    let navigator: MovieDetailNavigatorType
     let movieId: Int
     
     struct Input {
         let loadTrigger: Driver<Void>
+        let selectMovieTrigger: Driver<Int>
     }
     
     struct Output {
         let movieDetail: Driver<[MovieDetailSectionModel]>
+        let selectedMovieId: Driver<Int>
     }
     
     func transform(input: Input) -> Output {
@@ -31,16 +34,16 @@ struct MovieDetailViewModel {
                 return [
                     .movieDetail(items: [
                         .trailer(linkId: movie.videos.results.last?.key ?? ""),
-                        .info(name: movie.title,
-                              year: movie.releaseYear.getYear(),
-                              numberRating: movie.numberRating,
-                              description: movie.description),
+                        .info(movieDetail: movie),
                         .casts(credits: movie.credits),
                         .movieRecommended(movie: movie.similarMovies)
                     ])
                 ]
             }
         
-        return Output(movieDetail: movieDetail)
+        let selectedMovieId = input.selectMovieTrigger
+            .do(onNext: navigator.toDetailScreen(id:))
+        
+        return Output(movieDetail: movieDetail, selectedMovieId: selectedMovieId)
     }
 }

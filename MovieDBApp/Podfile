@@ -16,5 +16,6 @@ pod 'Reusable'
 pod 'SnapKit', '~> 5.0.0'
 pod 'Then'
 pod 'NSObject+Rx'
+pod 'youtube-ios-player-helper'
 
 end

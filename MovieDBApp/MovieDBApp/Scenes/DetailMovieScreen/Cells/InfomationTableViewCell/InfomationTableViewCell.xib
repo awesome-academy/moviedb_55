@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="169" id="KGk-i7-Jjw" customClass="InfomationTableViewCell" customModule="MovieDBApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="617" height="169"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="617" height="169"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Tomorrow War" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbn-0m-6LC">
+                        <rect key="frame" x="8" y="8" width="557" height="30"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(2021) |" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQy-YO-Fpk">
+                        <rect key="frame" x="8" y="46" width="61.5" height="21.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <color key="textColor" systemColor="systemGrayColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7.9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpU-RE-YoT">
+                        <rect key="frame" x="77.5" y="46" width="23.5" height="21.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <color key="textColor" systemColor="systemGrayColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="1ic-fZ-QgI">
+                        <rect key="frame" x="109" y="46" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="24" id="gOx-El-PQf"/>
+                            <constraint firstAttribute="height" constant="24" id="o1m-m1-vyl"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AKZ-hx-b7c">
+                        <rect key="frame" x="585" y="8" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="24" id="74X-tp-f3M"/>
+                            <constraint firstAttribute="height" constant="24" id="bIF-Rg-Jln"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <color key="tintColor" systemColor="systemOrangeColor"/>
+                        <state key="normal" image="bookmark" catalog="system"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwV-2O-Ifi">
+                        <rect key="frame" x="8" y="78" width="601" height="61"/>
+                        <string key="text">The world is stunned when a group of time travelers arrive from the year 2051 to deliver an urgent message: Thirty years in the future, mankind is losing a global war against a deadly alien species. The only hope for survival is for soldiers and civilians from the present to be transported to the future and join the fight. Among those recruited is high school teacher and family man Dan Forester. Determined to save the world for his young daughter, Dan teams up with a brilliant scientist and his estranged father in a desperate quest to rewrite the fate of the planet.</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Gbn-0m-6LC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="0Aa-ff-GzE"/>
+                    <constraint firstItem="1ic-fZ-QgI" firstAttribute="leading" secondItem="cpU-RE-YoT" secondAttribute="trailing" constant="8" id="DAe-ZN-WC5"/>
+                    <constraint firstItem="cpU-RE-YoT" firstAttribute="leading" secondItem="RQy-YO-Fpk" secondAttribute="trailing" constant="8" id="Eft-Ix-Ufe"/>
+                    <constraint firstItem="hwV-2O-Ifi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="G7j-4b-6WR"/>
+                    <constraint firstItem="AKZ-hx-b7c" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="HTN-0a-dOS"/>
+                    <constraint firstItem="AKZ-hx-b7c" firstAttribute="leading" secondItem="Gbn-0m-6LC" secondAttribute="trailing" constant="20" id="NfC-cs-7iT"/>
+                    <constraint firstItem="Gbn-0m-6LC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Nha-eb-Tto"/>
+                    <constraint firstItem="hwV-2O-Ifi" firstAttribute="top" secondItem="1ic-fZ-QgI" secondAttribute="bottom" constant="8" id="bxP-aN-7bi"/>
+                    <constraint firstItem="cpU-RE-YoT" firstAttribute="top" secondItem="Gbn-0m-6LC" secondAttribute="bottom" constant="8" id="eR8-6l-Lk4"/>
+                    <constraint firstAttribute="trailing" secondItem="AKZ-hx-b7c" secondAttribute="trailing" constant="8" id="fjB-yb-8N6"/>
+                    <constraint firstItem="RQy-YO-Fpk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="iZc-iz-Swg"/>
+                    <constraint firstItem="RQy-YO-Fpk" firstAttribute="top" secondItem="Gbn-0m-6LC" secondAttribute="bottom" constant="8" id="qqX-mk-H17"/>
+                    <constraint firstItem="1ic-fZ-QgI" firstAttribute="top" secondItem="Gbn-0m-6LC" secondAttribute="bottom" constant="8" id="w3k-B6-C7p"/>
+                    <constraint firstAttribute="trailing" secondItem="hwV-2O-Ifi" secondAttribute="trailing" constant="8" id="xgm-Ry-INy"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="btnAddMovie" destination="AKZ-hx-b7c" id="KPl-de-HyU"/>
+                <outlet property="movieDescription" destination="hwV-2O-Ifi" id="Jf1-bk-GhB"/>
+                <outlet property="point" destination="cpU-RE-YoT" id="FBJ-uc-7QE"/>
+                <outlet property="title" destination="Gbn-0m-6LC" id="CYX-vB-xV5"/>
+                <outlet property="yearRelease" destination="RQy-YO-Fpk" id="jbb-RE-Bwz"/>
+            </connections>
+            <point key="canvasLocation" x="212.31884057971016" y="96.763392857142847"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="bookmark" catalog="system" width="112" height="128"/>
+        <image name="icon" width="512" height="512"/>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
