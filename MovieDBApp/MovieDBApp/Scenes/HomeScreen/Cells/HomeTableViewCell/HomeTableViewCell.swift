@@ -11,7 +11,7 @@ import Reusable
 
 final class HomeTableViewCell: UITableViewCell, NibReusable {
     private var model: MovieSession!
-    var onItemMovieTapped: ((Int) -> Void)?
+    var onItemMovieTapped: ((Movie) -> Void)?
     
     @IBOutlet private weak var textMovieCategory: UILabel!
     @IBOutlet private weak var buttonSeeAll: UIButton!
@@ -54,7 +54,7 @@ final class HomeTableViewCell: UITableViewCell, NibReusable {
 extension HomeTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        onItemMovieTapped?(model.movies[indexPath.row].id)
+        onItemMovieTapped?(model.movies[indexPath.row])
     }
 }
 

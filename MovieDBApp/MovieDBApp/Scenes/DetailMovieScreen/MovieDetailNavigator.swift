@@ -8,14 +8,14 @@
 import UIKit
 
 protocol MovieDetailNavigatorType {
-    func toDetailScreen(id: Int)
+    func toDetailScreen(movie: Movie)
 }
 
 struct MovieDetailNavigator: MovieDetailNavigatorType {
     let navigationController: UINavigationController
     
-    func toDetailScreen(id: Int) {
-        let vc = MovieDetailViewController.instance(navigationController: navigationController, movieId: id)
+    func toDetailScreen(movie: Movie) {
+        let vc = MovieDetailViewController.instance(navigationController: navigationController, movie: movie)
         navigationController.pushViewController(vc, animated: true)
     }
 }

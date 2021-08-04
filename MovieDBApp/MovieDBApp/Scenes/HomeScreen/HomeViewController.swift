@@ -17,7 +17,7 @@ final class HomeViewController: UIViewController {
     typealias DataSource = RxTableViewSectionedReloadDataSource<MoviesSection>
     var viewModel: HomeViewModel!
     private var dataSource: DataSource!
-    private let selectMovieTrigger = PublishSubject<Int>()
+    private let selectMovieTrigger = PublishSubject<Movie>()
     
     @IBOutlet private weak var movieTableView: UITableView!
 
@@ -49,7 +49,7 @@ final class HomeViewController: UIViewController {
     private func bindViewModel() {
         let input = HomeViewModel.Input(
             loadTrigger: Driver.just(()),
-            selectMovieTrigger: selectMovieTrigger.asDriver(onErrorJustReturn: 0)
+            selectMovieTrigger: selectMovieTrigger.asDriver(onErrorJustReturn: Movie())
         )
         
         let output = viewModel.transform(input: input)
