@@ -27,3 +27,23 @@ enum MovieCategory: String, CaseIterable {
         }
     }
 }
+
+enum DatabaseError: Error {
+    case addMovieFailed
+    case deleteMovieFailed
+    case checkMovieExistFailed
+}
+
+enum DatabaseAlert {
+    case addSuccessfully
+    case deleteSuccessfully
+    
+    var message: String {
+        switch self {
+        case .addSuccessfully:
+            return "Add Movie Successfully!"
+        case .deleteSuccessfully:
+            return "Delete Movie Successfully!"
+        }
+    }
+}

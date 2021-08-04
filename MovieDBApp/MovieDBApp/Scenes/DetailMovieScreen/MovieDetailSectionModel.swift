@@ -14,7 +14,7 @@ enum MovieDetailSectionModel {
 
 enum SectionItem {
     case trailer(linkId: String)
-    case info(movieDetail: MovieDetail)
+    case info(movieDetail: MovieDetail, isFavorite: Bool)
     case casts(credits: Credits)
     case movieRecommended(movie: SimilarMovies)
 }

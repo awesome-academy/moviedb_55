@@ -19,7 +19,8 @@ final class MovieDetailViewController: UIViewController {
     
     private var dataSource: DataSource!
     private var viewModel: MovieDetailViewModel!
-    private let selectMovieTrigger = PublishSubject<Int>()
+    private let selectMovieTrigger = PublishSubject<Movie>()
+    private let selectFavoriteMovieTrigger = PublishSubject<Bool>()
     
     private let heightForTrailer: CGFloat = 225
     private let heightForInfo: CGFloat = 160
@@ -53,7 +54,8 @@ final class MovieDetailViewController: UIViewController {
     func bindViewModel() {
         let input = MovieDetailViewModel.Input(
             loadTrigger: Driver.just(()),
-            selectMovieTrigger: selectMovieTrigger.asDriver(onErrorJustReturn: 0)
+            selectMovieTrigger: selectMovieTrigger.asDriver(onErrorJustReturn: Movie()),
+            likeMovieTrigger: selectFavoriteMovieTrigger.asDriver(onErrorJustReturn: false)
         )
         let output = viewModel.transform(input: input)
         
@@ -65,14 +67,30 @@ final class MovieDetailViewController: UIViewController {
         output.selectedMovieId
             .drive()
             .disposed(by: rx.disposeBag)
+        
+        output.handleStatus.forEach {
+            $0.drive()
+                .disposed(by: rx.disposeBag)
+        }
+    }
+    
+    func messageAddFavoriteMovie(status: Bool) {
+        let alert = UIAlertController(title: "Notification",
+                                      message: status ?
+                                        DatabaseAlert.addSuccessfully.message :
+                                        DatabaseAlert.deleteSuccessfully.message,
+                                      preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }
 
 extension MovieDetailViewController {
-    static func instance(navigationController: UINavigationController, movieId: Int) -> MovieDetailViewController {
-        let useCase = MovieDetailUseCase(movieRepository: MoviesRepository())
+    static func instance(navigationController: UINavigationController, movie: Movie) -> MovieDetailViewController {
+        let useCase = MovieDetailUseCase(movieRepository: MoviesRepository(), databaseRepository: DatabaseRepository() )
         let navigator = MovieDetailNavigator(navigationController: navigationController)
-        let viewModel = MovieDetailViewModel(useCase: useCase, navigator: navigator, movieId: movieId)
+        let viewModel = MovieDetailViewModel(useCase: useCase, navigator: navigator, movie: movie)
         let vc = MovieDetailViewController()
         vc.viewModel = viewModel
         return vc
@@ -87,9 +105,13 @@ extension MovieDetailViewController {
                 let cell = tableView.dequeueReusableCell(for: indexPath, cellType: TrailerTableViewCell.self)
                 cell.configure(linkId: linkId)
                 return cell
-            case .info(let movieDetail):
+            case .info(let movieDetail, let status):
                 let cell = tableView.dequeueReusableCell(for: indexPath, cellType: InfomationTableViewCell.self)
-                cell.configure(movieDetail: movieDetail)
+                cell.onLikeMovieTapped = {
+                    selectFavoriteMovieTrigger.onNext($0)
+                    messageAddFavoriteMovie(status: !status)
+                }
+                cell.configure(movieDetail: movieDetail, status: status)
                 return cell
             case .casts(let credits):
                 let cell = tableView.dequeueReusableCell(for: indexPath, cellType: CastAndCrewTableViewCell.self)

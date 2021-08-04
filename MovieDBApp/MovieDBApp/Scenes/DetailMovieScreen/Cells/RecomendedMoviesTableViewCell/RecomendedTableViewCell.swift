@@ -10,8 +10,8 @@ import Reusable
 
 final class RecomendedTableViewCell: UITableViewCell, NibReusable {
     @IBOutlet private weak var recomendedCollectionView: UICollectionView!
-    private var recomendedMovies = [SimilarMovie]()
-    var onItemMovieTapped: ((Int) -> Void)?
+    private var recomendedMovies = [Movie]()
+    var onItemMovieTapped: ((Movie) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -46,7 +46,7 @@ final class RecomendedTableViewCell: UITableViewCell, NibReusable {
 extension RecomendedTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        onItemMovieTapped?(recomendedMovies[indexPath.row].id)
+        onItemMovieTapped?(recomendedMovies[indexPath.row])
     }
 }
 
