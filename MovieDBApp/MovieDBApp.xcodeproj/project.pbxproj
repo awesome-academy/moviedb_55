@@ -57,11 +57,14 @@
 		2686715E26BB7DD900DAC483 /* FavoritesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2686715D26BB7DD900DAC483 /* FavoritesUseCase.swift */; };
 		2686716626BB7E3200DAC483 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2686716526BB7E3200DAC483 /* FavoritesViewModel.swift */; };
 		2686716926BB870100DAC483 /* FavoritesNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2686716826BB870100DAC483 /* FavoritesNavigator.swift */; };
+		2686716F26BBBB4300DAC483 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2686716D26BBBB4300DAC483 /* SearchViewController.swift */; };
+		2686717026BBBB4300DAC483 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2686716E26BBBB4300DAC483 /* SearchViewController.xib */; };
+		2686717A26BBC34A00DAC483 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2686717826BBC34A00DAC483 /* SearchTableViewCell.swift */; };
+		2686717B26BBC34A00DAC483 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2686717926BBC34A00DAC483 /* SearchTableViewCell.xib */; };
 		26867C2726B1059900C69231 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26867C2626B1059900C69231 /* AppDelegate.swift */; };
 		26867C2926B1059900C69231 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26867C2826B1059900C69231 /* SceneDelegate.swift */; };
 		26867C3026B105A500C69231 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26867C2F26B105A500C69231 /* Assets.xcassets */; };
 		26867C3326B105A500C69231 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26867C3126B105A500C69231 /* LaunchScreen.storyboard */; };
-		26867C6026B10F5A00C69231 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26867C5F26B10F5A00C69231 /* SearchViewController.swift */; };
 		26867C7326B13ED100C69231 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26867C7226B13ED100C69231 /* TabBarController.swift */; };
 		26867C8926B15BC100C69231 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26867C8826B15BC100C69231 /* Movie.swift */; };
 		26867C9026B15C1C00C69231 /* MovieURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26867C8F26B15C1C00C69231 /* MovieURLs.swift */; };
@@ -123,13 +126,16 @@
 		2686715D26BB7DD900DAC483 /* FavoritesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesUseCase.swift; sourceTree = "<group>"; };
 		2686716526BB7E3200DAC483 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		2686716826BB870100DAC483 /* FavoritesNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesNavigator.swift; sourceTree = "<group>"; };
+		2686716D26BBBB4300DAC483 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		2686716E26BBBB4300DAC483 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		2686717826BBC34A00DAC483 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		2686717926BBC34A00DAC483 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		26867C2326B1059900C69231 /* MovieDBApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDBApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26867C2626B1059900C69231 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26867C2826B1059900C69231 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		26867C2F26B105A500C69231 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26867C3226B105A500C69231 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26867C3426B105A500C69231 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		26867C5F26B10F5A00C69231 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		26867C7226B13ED100C69231 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		26867C8826B15BC100C69231 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		26867C8F26B15C1C00C69231 /* MovieURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieURLs.swift; sourceTree = "<group>"; };
@@ -309,6 +315,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		2686717226BBC24100DAC483 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2686717826BBC34A00DAC483 /* SearchTableViewCell.swift */,
+				2686717926BBC34A00DAC483 /* SearchTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		26867C1A26B1059900C69231 = {
 			isa = PBXGroup;
 			children = (
@@ -408,7 +423,9 @@
 		26867C5826B10EDE00C69231 /* SearchScreen */ = {
 			isa = PBXGroup;
 			children = (
-				26867C5F26B10F5A00C69231 /* SearchViewController.swift */,
+				2686717226BBC24100DAC483 /* Cell */,
+				2686716D26BBBB4300DAC483 /* SearchViewController.swift */,
+				2686716E26BBBB4300DAC483 /* SearchViewController.xib */,
 			);
 			path = SearchScreen;
 			sourceTree = "<group>";
@@ -551,6 +568,7 @@
 				2686715326BB6F5100DAC483 /* FavoritesViewController.xib in Resources */,
 				26867C3026B105A500C69231 /* Assets.xcassets in Resources */,
 				268670ED26B92B8000DAC483 /* RecomendedTableViewCell.xib in Resources */,
+				2686717B26BBC34A00DAC483 /* SearchTableViewCell.xib in Resources */,
 				268670E326B92A7800DAC483 /* CastAndCrewTableViewCell.xib in Resources */,
 				268670DC26B9277600DAC483 /* InfomationTableViewCell.xib in Resources */,
 				267D2A3626B38CF800923238 /* HomeTableViewCell.xib in Resources */,
@@ -558,6 +576,7 @@
 				2686715A26BB70B000DAC483 /* FavoritesCollectionViewCell.xib in Resources */,
 				268670FA26B9367100DAC483 /* MovieDetailViewController.xib in Resources */,
 				267D2A2C26B3894100923238 /* HomeViewController.xib in Resources */,
+				2686717026BBBB4300DAC483 /* SearchViewController.xib in Resources */,
 				268670CB26B9247900DAC483 /* TrailerTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -621,7 +640,6 @@
 				26867C8926B15BC100C69231 /* Movie.swift in Sources */,
 				26867C9026B15C1C00C69231 /* MovieURLs.swift in Sources */,
 				2686705F26B78F0100DAC483 /* HomeNavigator.swift in Sources */,
-				26867C6026B10F5A00C69231 /* SearchViewController.swift in Sources */,
 				268670F326B92C1700DAC483 /* RecomendedCollectionViewCell.swift in Sources */,
 				2686712E26BA755B00DAC483 /* MovieEntity+CoreDataProperties.swift in Sources */,
 				268670F926B9367100DAC483 /* MovieDetailViewController.swift in Sources */,
@@ -642,6 +660,8 @@
 				2686715E26BB7DD900DAC483 /* FavoritesUseCase.swift in Sources */,
 				267D2A1A26B2F65700923238 /* UIImageView+Extension.swift in Sources */,
 				268670B126B8FF8C00DAC483 /* MovieVideos.swift in Sources */,
+				2686716F26BBBB4300DAC483 /* SearchViewController.swift in Sources */,
+				2686717A26BBC34A00DAC483 /* SearchTableViewCell.swift in Sources */,
 				267D2A7526B400FD00923238 /* MovieSectionModel.swift in Sources */,
 				2686709F26B8E4DC00DAC483 /* String+Extension.swift in Sources */,
 				2686713426BA768800DAC483 /* DatabaseRepository.swift in Sources */,
