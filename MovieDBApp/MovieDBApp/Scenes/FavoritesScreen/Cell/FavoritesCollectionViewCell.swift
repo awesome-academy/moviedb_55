@@ -10,11 +10,11 @@ import Then
 import Reusable
 
 final class FavoritesCollectionViewCell: UICollectionViewCell, NibReusable {
-
     @IBOutlet private weak var imageMovieFavorite: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupView()
     }
     
     private func setupView() {
@@ -24,5 +24,9 @@ final class FavoritesCollectionViewCell: UICollectionViewCell, NibReusable {
             $0.layer.cornerRadius = 10
             $0.contentMode = .scaleAspectFill
         }
+    }
+    
+    func configure(path: String) {
+        imageMovieFavorite.loadImageWithUrl(path: path)
     }
 }

@@ -91,4 +91,32 @@ final class DatabaseManager {
             return Disposables.create()
         }
     }
+    
+    func getAllMovieFavorite() -> Observable<[Movie]> {
+        let context = presistentContainer.viewContext
+        return Observable.create { observer in
+            do {
+                let request = MovieEntity.fetchRequest() as NSFetchRequest<MovieEntity>
+                let moviesEntity = try context.fetch(request)
+                
+                let movies = moviesEntity.map { (movie) -> Movie in
+                    return Movie(
+                        id: Int(movie.id),
+                        title: movie.title ?? "",
+                        description: movie.overview ?? "",
+                        poster: movie.poster ?? "",
+                        vote: Int(movie.vote),
+                        dayRelease: movie.dayRelease ?? ""
+                    )
+                }
+                
+                observer.onNext(movies)
+                observer.onCompleted()
+            } catch {
+                print("get all movie failed")
+                observer.onError(DatabaseError.getAllMovieFailed)
+            }
+            return Disposables.create()
+        }
+    }
 }
