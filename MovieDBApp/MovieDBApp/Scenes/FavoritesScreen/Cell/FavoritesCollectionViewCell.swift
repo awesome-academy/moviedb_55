@@ -27,6 +27,6 @@ final class FavoritesCollectionViewCell: UICollectionViewCell, NibReusable {
     }
     
     func configure(path: String) {
-        imageMovieFavorite.loadImageWithUrl(path: path)
+        imageMovieFavorite.loadImageWithUrl(urlImage: .poster, path: path)
     }
 }

@@ -21,7 +21,7 @@ final class CastAndCrewCollectionViewCell: UICollectionViewCell, NibReusable {
     
     func configure(cast: Cast) {
         castName.text = cast.name
-        castImage.loadImageWithUrl(path: cast.image)
+        castImage.loadImageWithUrl(urlImage: .poster, path: cast.image)
     }
     
     private func setupView() {

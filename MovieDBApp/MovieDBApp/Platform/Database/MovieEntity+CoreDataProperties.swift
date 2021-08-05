@@ -15,10 +15,11 @@ extension MovieEntity {
     }
 
     @NSManaged public var id: Int32
-    @NSManaged public var vote: Int32
+    @NSManaged public var vote: Double
     @NSManaged public var dayRelease: String?
     @NSManaged public var title: String?
     @NSManaged public var poster: String?
+    @NSManaged public var backdrop: String?
     @NSManaged public var overview: String?
 }
 

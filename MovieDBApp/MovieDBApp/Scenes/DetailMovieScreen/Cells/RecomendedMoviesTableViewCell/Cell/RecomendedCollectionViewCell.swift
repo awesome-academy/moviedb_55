@@ -23,7 +23,7 @@ final class RecomendedCollectionViewCell: UICollectionViewCell, NibReusable {
     func configure(movie: Movie) {
         movieRecomendedTitle.text = movie.title
         movieRecomendedYear.text = "(\(movie.dayRelease.getYear()))"
-        movieRecomendedImage.loadImageWithUrl(path: movie.poster)
+        movieRecomendedImage.loadImageWithUrl(urlImage: .poster, path: movie.poster)
     }
     
     private func setupView() {

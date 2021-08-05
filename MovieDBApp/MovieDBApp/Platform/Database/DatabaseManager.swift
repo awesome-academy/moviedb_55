@@ -54,7 +54,8 @@ final class DatabaseManager {
                     $0.dayRelease = movie.dayRelease
                     $0.overview = movie.description
                     $0.title = movie.title
-                    $0.vote = Int32(movie.vote)
+                    $0.vote = movie.vote
+                    $0.backdrop = movie.backdrop
                 }
                 
                 try context.save()
@@ -105,7 +106,8 @@ final class DatabaseManager {
                         title: movie.title ?? "",
                         description: movie.overview ?? "",
                         poster: movie.poster ?? "",
-                        vote: Int(movie.vote),
+                        backdrop: movie.backdrop ?? "",
+                        vote: movie.vote,
                         dayRelease: movie.dayRelease ?? ""
                     )
                 }

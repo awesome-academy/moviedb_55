@@ -36,6 +36,13 @@ final class SearchTableViewCell: UITableViewCell, NibReusable {
         }
     }
     
+    func configure(movie: Movie) {
+        movieYear.text = "MOVIE(\(movie.dayRelease.getYear()))"
+        movieName.text = movie.title
+        movieNumber.text = String(movie.vote)
+        backgroundImage.loadImageWithUrl(urlImage: .backdrop, path: movie.backdrop)
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }

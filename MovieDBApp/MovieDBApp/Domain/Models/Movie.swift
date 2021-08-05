@@ -29,7 +29,8 @@ struct Movie {
     var title: String
     var description: String
     var poster: String
-    var vote: Int
+    var backdrop: String
+    var vote: Double
     var dayRelease: String
 }
 
@@ -39,6 +40,7 @@ extension Movie {
                   title: "",
                   description: "",
                   poster: "",
+                  backdrop: "",
                   vote: 0,
                   dayRelease: "")
     }
@@ -54,6 +56,7 @@ extension Movie: Mappable {
         title       <- map["title"]
         description <- map["overview"]
         poster      <- map["poster_path"]
+        backdrop    <- map["backdrop_path"]
         vote        <- map["vote_average"]
         dayRelease  <- map["release_date"]
     }

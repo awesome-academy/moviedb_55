@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="MovieDBApp" customModuleProvider="target">
             <connections>
-                <outlet property="optionSearch" destination="BFp-mD-3vB" id="MRS-nx-vWf"/>
+                <outlet property="searchAlert" destination="MrW-oo-f08" id="kWw-7w-Z1a"/>
                 <outlet property="searchBar" destination="Qiz-Mt-AMh" id="4PZ-Av-UyJ"/>
                 <outlet property="searchTableView" destination="W2d-46-cBU" id="zvG-Am-ate"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -21,41 +21,37 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search movies name or categories..." translatesAutoresizingMaskIntoConstraints="NO" id="Qiz-Mt-AMh">
-                    <rect key="frame" x="8" y="44" width="398" height="45"/>
+                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search movies name..." translatesAutoresizingMaskIntoConstraints="NO" id="Qiz-Mt-AMh">
+                    <rect key="frame" x="4" y="44" width="406" height="45"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="3Ux-c9-TIY"/>
                     </constraints>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BFp-mD-3vB">
-                    <rect key="frame" x="8" y="93" width="398" height="36"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="35" id="WaZ-RW-ce0"/>
-                    </constraints>
-                    <segments>
-                        <segment title="Movies"/>
-                        <segment title="Categories"/>
-                    </segments>
-                </segmentedControl>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="W2d-46-cBU">
-                    <rect key="frame" x="8" y="132" width="398" height="730"/>
+                    <rect key="frame" x="8" y="93" width="398" height="769"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your movie could not be found, please try again!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MrW-oo-f08">
+                    <rect key="frame" x="60" y="427.5" width="294" height="41"/>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="W2d-46-cBU" firstAttribute="top" secondItem="BFp-mD-3vB" secondAttribute="bottom" constant="4" id="8RA-aS-RDE"/>
-                <constraint firstItem="BFp-mD-3vB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="LBY-Ay-ZA6"/>
-                <constraint firstItem="Qiz-Mt-AMh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="OnT-SO-4lm"/>
+                <constraint firstItem="Qiz-Mt-AMh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="4" id="OnT-SO-4lm"/>
                 <constraint firstItem="Qiz-Mt-AMh" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="SOg-Bf-MQO"/>
-                <constraint firstItem="Qiz-Mt-AMh" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-8" id="Xr5-jr-f5q"/>
-                <constraint firstItem="BFp-mD-3vB" firstAttribute="top" secondItem="Qiz-Mt-AMh" secondAttribute="bottom" constant="4" id="eMg-Nv-9Zm"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="BFp-mD-3vB" secondAttribute="trailing" constant="8" id="jRC-XU-hKX"/>
+                <constraint firstItem="Qiz-Mt-AMh" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-4" id="Xr5-jr-f5q"/>
+                <constraint firstItem="MrW-oo-f08" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="evg-nj-PC3"/>
+                <constraint firstItem="MrW-oo-f08" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="jZb-au-IZ4"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MrW-oo-f08" secondAttribute="trailing" constant="60" id="k23-3w-hEE"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="W2d-46-cBU" secondAttribute="trailing" constant="8" id="mjn-Es-Y9s"/>
                 <constraint firstItem="W2d-46-cBU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="pfI-H9-GpU"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="W2d-46-cBU" secondAttribute="bottom" id="wBi-9B-rGS"/>
+                <constraint firstItem="W2d-46-cBU" firstAttribute="top" secondItem="Qiz-Mt-AMh" secondAttribute="bottom" constant="4" id="xu4-oC-FFp"/>
             </constraints>
             <point key="canvasLocation" x="132" y="91"/>
         </view>

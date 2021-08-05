@@ -9,7 +9,10 @@ import UIKit
 import SDWebImage
 
 extension UIImageView {
-    func loadImageWithUrl(path: String) {
-        self.sd_setImage(with: URL(string: MovieURLs.shared.baseImageURL + path))
+    func loadImageWithUrl(urlImage: MovieImage, path: String) {
+        self.image = UIImage(named: "imageNotFound")
+        if !path.isEmpty {
+            self.sd_setImage(with: URL(string: urlImage.getImageURL + path))
+        }
     }
 }
