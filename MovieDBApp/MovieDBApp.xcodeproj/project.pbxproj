@@ -50,12 +50,15 @@
 		2686712E26BA755B00DAC483 /* MovieEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2686712C26BA755B00DAC483 /* MovieEntity+CoreDataProperties.swift */; };
 		2686713126BA758900DAC483 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2686713026BA758900DAC483 /* DatabaseManager.swift */; };
 		2686713426BA768800DAC483 /* DatabaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2686713326BA768800DAC483 /* DatabaseRepository.swift */; };
+		2686715226BB6F5100DAC483 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2686715026BB6F5100DAC483 /* FavoritesViewController.swift */; };
+		2686715326BB6F5100DAC483 /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2686715126BB6F5100DAC483 /* FavoritesViewController.xib */; };
+		2686715926BB70B000DAC483 /* FavoritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2686715726BB70B000DAC483 /* FavoritesCollectionViewCell.swift */; };
+		2686715A26BB70B000DAC483 /* FavoritesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2686715826BB70B000DAC483 /* FavoritesCollectionViewCell.xib */; };
 		26867C2726B1059900C69231 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26867C2626B1059900C69231 /* AppDelegate.swift */; };
 		26867C2926B1059900C69231 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26867C2826B1059900C69231 /* SceneDelegate.swift */; };
 		26867C3026B105A500C69231 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26867C2F26B105A500C69231 /* Assets.xcassets */; };
 		26867C3326B105A500C69231 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26867C3126B105A500C69231 /* LaunchScreen.storyboard */; };
 		26867C6026B10F5A00C69231 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26867C5F26B10F5A00C69231 /* SearchViewController.swift */; };
-		26867C6326B1101100C69231 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26867C6226B1101100C69231 /* FavoritesViewController.swift */; };
 		26867C7326B13ED100C69231 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26867C7226B13ED100C69231 /* TabBarController.swift */; };
 		26867C8926B15BC100C69231 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26867C8826B15BC100C69231 /* Movie.swift */; };
 		26867C9026B15C1C00C69231 /* MovieURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26867C8F26B15C1C00C69231 /* MovieURLs.swift */; };
@@ -110,6 +113,10 @@
 		2686712C26BA755B00DAC483 /* MovieEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2686713026BA758900DAC483 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		2686713326BA768800DAC483 /* DatabaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseRepository.swift; sourceTree = "<group>"; };
+		2686715026BB6F5100DAC483 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		2686715126BB6F5100DAC483 /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
+		2686715726BB70B000DAC483 /* FavoritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewCell.swift; sourceTree = "<group>"; };
+		2686715826BB70B000DAC483 /* FavoritesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesCollectionViewCell.xib; sourceTree = "<group>"; };
 		26867C2326B1059900C69231 /* MovieDBApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDBApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26867C2626B1059900C69231 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26867C2826B1059900C69231 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,7 +124,6 @@
 		26867C3226B105A500C69231 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26867C3426B105A500C69231 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26867C5F26B10F5A00C69231 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		26867C6226B1101100C69231 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		26867C7226B13ED100C69231 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		26867C8826B15BC100C69231 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		26867C8F26B15C1C00C69231 /* MovieURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieURLs.swift; sourceTree = "<group>"; };
@@ -288,6 +294,15 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
+		2686715526BB6F5F00DAC483 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2686715726BB70B000DAC483 /* FavoritesCollectionViewCell.swift */,
+				2686715826BB70B000DAC483 /* FavoritesCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		26867C1A26B1059900C69231 = {
 			isa = PBXGroup;
 			children = (
@@ -395,7 +410,9 @@
 		26867C5926B10EE600C69231 /* FavoritesScreen */ = {
 			isa = PBXGroup;
 			children = (
-				26867C6226B1101100C69231 /* FavoritesViewController.swift */,
+				2686715526BB6F5F00DAC483 /* Cell */,
+				2686715026BB6F5100DAC483 /* FavoritesViewController.swift */,
+				2686715126BB6F5100DAC483 /* FavoritesViewController.xib */,
 			);
 			path = FavoritesScreen;
 			sourceTree = "<group>";
@@ -522,12 +539,14 @@
 				267D2A3D26B3917F00923238 /* HomeCollectionViewCell.xib in Resources */,
 				26867C3326B105A500C69231 /* LaunchScreen.storyboard in Resources */,
 				268670F426B92C1700DAC483 /* RecomendedCollectionViewCell.xib in Resources */,
+				2686715326BB6F5100DAC483 /* FavoritesViewController.xib in Resources */,
 				26867C3026B105A500C69231 /* Assets.xcassets in Resources */,
 				268670ED26B92B8000DAC483 /* RecomendedTableViewCell.xib in Resources */,
 				268670E326B92A7800DAC483 /* CastAndCrewTableViewCell.xib in Resources */,
 				268670DC26B9277600DAC483 /* InfomationTableViewCell.xib in Resources */,
 				267D2A3626B38CF800923238 /* HomeTableViewCell.xib in Resources */,
 				268670E926B92AC100DAC483 /* CastAndCrewCollectionViewCell.xib in Resources */,
+				2686715A26BB70B000DAC483 /* FavoritesCollectionViewCell.xib in Resources */,
 				268670FA26B9367100DAC483 /* MovieDetailViewController.xib in Resources */,
 				267D2A2C26B3894100923238 /* HomeViewController.xib in Resources */,
 				268670CB26B9247900DAC483 /* TrailerTableViewCell.xib in Resources */,
@@ -597,9 +616,11 @@
 				2686712E26BA755B00DAC483 /* MovieEntity+CoreDataProperties.swift in Sources */,
 				268670F926B9367100DAC483 /* MovieDetailViewController.swift in Sources */,
 				26867C2726B1059900C69231 /* AppDelegate.swift in Sources */,
+				2686715926BB70B000DAC483 /* FavoritesCollectionViewCell.swift in Sources */,
 				268670E226B92A7800DAC483 /* CastAndCrewTableViewCell.swift in Sources */,
 				2686712926BA74C000DAC483 /* MoviesDatabase.xcdatamodeld in Sources */,
 				26867C2926B1059900C69231 /* SceneDelegate.swift in Sources */,
+				2686715226BB6F5100DAC483 /* FavoritesViewController.swift in Sources */,
 				26867C9D26B171BB00C69231 /* APIService+GetMovieByCategory.swift in Sources */,
 				267D2A3C26B3917F00923238 /* HomeCollectionViewCell.swift in Sources */,
 				268670DD26B9277600DAC483 /* InfomationTableViewCell.swift in Sources */,
@@ -618,7 +639,6 @@
 				267D2A2B26B3894100923238 /* HomeViewController.swift in Sources */,
 				2686713126BA758900DAC483 /* DatabaseManager.swift in Sources */,
 				26867C7326B13ED100C69231 /* TabBarController.swift in Sources */,
-				26867C6326B1101100C69231 /* FavoritesViewController.swift in Sources */,
 				267D2A3526B38CF800923238 /* HomeTableViewCell.swift in Sources */,
 				268670AB26B8E6E700DAC483 /* MovieDetailSectionModel.swift in Sources */,
 				267D2A0F26B25D4700923238 /* HomeViewModel.swift in Sources */,
