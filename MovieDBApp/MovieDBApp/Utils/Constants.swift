@@ -32,6 +32,7 @@ enum DatabaseError: Error {
     case addMovieFailed
     case deleteMovieFailed
     case checkMovieExistFailed
+    case getAllMovieFailed
 }
 
 enum DatabaseAlert {

@@ -17,18 +17,16 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vmG-w0-Fo3">
-                        <rect key="frame" x="18" y="13.5" width="100" height="170"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="100" id="ClL-2N-yDq"/>
-                            <constraint firstAttribute="height" constant="170" id="pun-tP-2My"/>
-                        </constraints>
+                        <rect key="frame" x="0.0" y="0.0" width="136" height="197"/>
                     </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="vmG-w0-Fo3" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="2xN-EB-0j3"/>
-                <constraint firstItem="vmG-w0-Fo3" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="4xp-Uu-ZJr"/>
+                <constraint firstItem="vmG-w0-Fo3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="LVD-MW-qjE"/>
+                <constraint firstItem="vmG-w0-Fo3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="NiV-Sy-xkY"/>
+                <constraint firstAttribute="bottom" secondItem="vmG-w0-Fo3" secondAttribute="bottom" id="O3h-ta-VTc"/>
+                <constraint firstAttribute="trailing" secondItem="vmG-w0-Fo3" secondAttribute="trailing" id="Up7-DG-4ZC"/>
             </constraints>
             <connections>
                 <outlet property="imageMovieFavorite" destination="vmG-w0-Fo3" id="Fze-0f-9iO"/>

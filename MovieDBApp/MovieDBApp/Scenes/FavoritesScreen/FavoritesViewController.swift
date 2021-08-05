@@ -6,14 +6,28 @@
 //
 
 import UIKit
+import Reusable
+import RxCocoa
+import RxSwift
+import Then
+import NSObject_Rx
 
 final class FavoritesViewController: UIViewController {
     
     @IBOutlet private weak var favoritesCollectionView: UICollectionView!
+    private let loadTrigger = PublishSubject<Void>()
+    private let movieDeleteTrigger = PublishSubject<IndexPath>()
+    var viewModel: FavoritesViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        bindViewModel()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadTrigger.onNext(())
     }
     
     private func setupView() {
@@ -25,7 +39,6 @@ final class FavoritesViewController: UIViewController {
             $0.register(cellType: FavoritesCollectionViewCell.self)
             $0.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
             $0.delegate = self
-            $0.dataSource = self
         }
         setupLayout()
     }
@@ -38,28 +51,54 @@ final class FavoritesViewController: UIViewController {
         }
         favoritesCollectionView.collectionViewLayout = layout
     }
+    
+    private func bindViewModel() {
+        let input = FavoritesViewModel.Input(
+            loadTrigger: loadTrigger.asDriver(onErrorJustReturn: ()),
+            selectMovieTrigger: favoritesCollectionView.rx.itemSelected.asDriver(onErrorDriveWith: .empty()),
+            movieDeleteTrigger: movieDeleteTrigger.asDriver(onErrorDriveWith: .empty())
+        )
+
+        let output = viewModel.transform(input: input)
+        
+        output.moviesFavorite
+            .drive(favoritesCollectionView.rx.items) { (collectionView, index, movie) in
+                let indexPath = IndexPath(item: index, section: 0)
+                let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: FavoritesCollectionViewCell.self)
+                cell.configure(path: movie.poster)
+                return cell
+            }
+            .disposed(by: rx.disposeBag)
+        
+        output.movieSelected
+            .drive()
+            .disposed(by: rx.disposeBag)
+        
+        output.movieDeleted
+            .drive()
+            .disposed(by: rx.disposeBag)
+    }
 }
 
 extension FavoritesViewController {
     static func instance(navigationController: UINavigationController) -> FavoritesViewController {
+        let useCase = FavoriteUseCase(databaseRepository: DatabaseRepository())
+        let navigator = FavoritesNavigator(navigationController: navigationController)
+        let viewModel = FavoritesViewModel(useCase: useCase, navigator: navigator)
         let vc = FavoritesViewController()
+        vc.viewModel = viewModel
         return vc
     }
 }
 
 extension FavoritesViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
-    }
-}
-
-extension FavoritesViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: FavoritesCollectionViewCell.self)
-        return cell
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
+            let delete = UIAction(title: "Delete", image: UIImage(systemName: "trash"), attributes: .destructive) { [unowned self] _ in
+                movieDeleteTrigger.onNext(indexPath)
+                loadTrigger.onNext(())
+            }
+            return UIMenu(title: "", children: [delete])
+        }
     }
 }

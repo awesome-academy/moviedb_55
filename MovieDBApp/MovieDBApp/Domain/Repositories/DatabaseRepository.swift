@@ -12,6 +12,7 @@ protocol DatabaseRepositoryType {
     func isMovieFavorite(id: Int) -> Observable<Bool>
     func addFavoriteMovie(movie: Movie) -> Observable<Bool>
     func deleteFavoriteMovie(id: Int) -> Observable<Bool>
+    func getMoviesFavorite() -> Observable<[Movie]>
 }
 
 struct DatabaseRepository: DatabaseRepositoryType {
@@ -25,5 +26,9 @@ struct DatabaseRepository: DatabaseRepositoryType {
     
     func deleteFavoriteMovie(id: Int) -> Observable<Bool> {
         return DatabaseManager.shared.deleteFavoriteMovie(id: id)
+    }
+    
+    func getMoviesFavorite() -> Observable<[Movie]> {
+        return DatabaseManager.shared.getAllMovieFavorite()
     }
 }
