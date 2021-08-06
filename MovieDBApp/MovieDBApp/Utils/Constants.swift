@@ -48,3 +48,17 @@ enum DatabaseAlert {
         }
     }
 }
+
+enum MovieImage {
+    case poster
+    case backdrop
+    
+    var getImageURL: String {
+        switch self {
+        case .poster:
+            return MovieURLs.shared.baseImageURL + "w200"
+        case .backdrop:
+            return MovieURLs.shared.baseImageURL + "w400"
+        }
+    }
+}

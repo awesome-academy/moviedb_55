@@ -57,8 +57,8 @@ final class HomeCollectionViewCell: UICollectionViewCell, NibReusable {
     
     func configure(title: String, movie: Movie) {
         titleCategory = title
-        movieImageViewBackground.loadImageWithUrl(path: movie.poster)
-        movieImageView.loadImageWithUrl(path: movie.poster)
+        movieImageViewBackground.loadImageWithUrl(urlImage: .poster, path: movie.poster)
+        movieImageView.loadImageWithUrl(urlImage: .poster, path: movie.poster)
         movieTitle.text = title == MovieCategory.nowPlaying.getTitle ? "" : movie.title
         movieYearRelease.text = title == MovieCategory.nowPlaying.getTitle ? "" : "(\(movie.dayRelease.getYear()))"
         configureUI()

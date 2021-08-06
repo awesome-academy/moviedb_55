@@ -47,7 +47,7 @@ final class FavoritesViewController: UIViewController {
         let layout = UICollectionViewFlowLayout().then {
             $0.scrollDirection = .vertical
             $0.itemSize = CGSize( width: (view.bounds.width / 3) - 28, height: 190)
-            $0.minimumLineSpacing = 0
+            $0.minimumLineSpacing = 16
         }
         favoritesCollectionView.collectionViewLayout = layout
     }
