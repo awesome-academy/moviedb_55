@@ -25,6 +25,7 @@ final class HomeTableViewCell: UITableViewCell, NibReusable {
     private func configureUI() {
         collectionView.do {
             $0.register(cellType: HomeCollectionViewCell.self)
+            $0.register(cellType: HomePosterCollectionViewCell.self)
             $0.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
             $0.showsHorizontalScrollIndicator = false
             $0.delegate = self
@@ -34,12 +35,10 @@ final class HomeTableViewCell: UITableViewCell, NibReusable {
         let layout = UICollectionViewFlowLayout().then {
             $0.scrollDirection = .horizontal
             $0.itemSize = CGSize(
-                width: textMovieCategory.text == MovieCategory.nowPlaying.getTitle ?
-                    contentView.frame.width : 113,
-                height: textMovieCategory.text == MovieCategory.nowPlaying.getTitle ?
-                    264 : 257
+                width: textMovieCategory.text == MovieCategory.nowPlaying.getTitle ? contentView.frame.width : 113,
+                height: textMovieCategory.text == MovieCategory.nowPlaying.getTitle ? 264 : 257
             )
-            $0.minimumLineSpacing = 20
+            $0.minimumLineSpacing = 16
         }
         collectionView.collectionViewLayout = layout
     }
@@ -70,8 +69,15 @@ extension HomeTableViewCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: HomeCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
-        cell.configure(title: model.category.getTitle, movie: model.movies[indexPath.row])
-        return cell
+        switch model.category {
+        case .nowPlaying:
+            let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: HomePosterCollectionViewCell.self)
+            cell.configure(title: model.category.getTitle, movie: model.movies[indexPath.row])
+            return cell
+        default:
+            let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: HomeCollectionViewCell.self)
+            cell.configure(title: model.category.getTitle, movie: model.movies[indexPath.row])
+            return cell
+        }
     }
 }

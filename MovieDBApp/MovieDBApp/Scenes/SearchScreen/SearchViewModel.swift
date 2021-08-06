@@ -5,7 +5,7 @@
 //  Created by Phong Le on 05/08/2021.
 //
 
-import Foundation
+import UIKit
 import RxSwift
 import RxCocoa
 
@@ -21,7 +21,7 @@ struct SearchViewModel {
     
     struct Output {
         let movies: Driver<[Movie]>
-        let moviesTemp: [Driver<[Movie]>]
+        let moviesDriver: [Driver<[Movie]>]
         let movieSelected: Driver<Movie>
         let notFoundMovie: Driver<Bool>
     }
@@ -38,8 +38,9 @@ struct SearchViewModel {
                 return useCase.getMoviesByName(query: query, page: 1)
                     .asDriver(onErrorJustReturn: [])
             }
-            .do(onNext: dataSource.accept(_:))
             .do(onNext: {
+                dataSource.accept($0)
+                
                 if $0.isEmpty && !handleQuery.value.isEmpty {
                     notFoundMovie.accept(false)
                 } else if !$0.isEmpty {
@@ -56,7 +57,7 @@ struct SearchViewModel {
                 dataSource.accept(dataSource.value + $0)
             })
         
-        let moviesTemp = [moviesSearched, moviesLoadMore]
+        let moviesDriver = [moviesSearched, moviesLoadMore]
         
         let movieSelected = input.selectMovieTrigger
             .withLatestFrom(dataSource.asDriver()) { (indexPath, movies) -> Movie in
@@ -65,7 +66,7 @@ struct SearchViewModel {
             .do(onNext: navigator.toDetailScreen(movie:))
                 
         return Output(movies: dataSource.asDriver(),
-                      moviesTemp: moviesTemp,
+                      moviesDriver: moviesDriver,
                       movieSelected: movieSelected,
                       notFoundMovie: notFoundMovie.asDriver())
     }

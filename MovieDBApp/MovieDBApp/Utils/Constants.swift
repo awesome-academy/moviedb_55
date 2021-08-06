@@ -5,6 +5,8 @@
 //  Created by Phong Le on 30/07/2021.
 //
 
+import UIKit
+
 enum MovieCategory: String, CaseIterable {
     case nowPlaying = "now_playing"
     case upcoming = "upcoming"
@@ -61,4 +63,16 @@ enum MovieImage {
             return MovieURLs.shared.baseImageURL + "w400"
         }
     }
+}
+
+func createSpinner(width: CGFloat) -> UIView {
+    let uiView = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 100))
+    
+    let spinner = UIActivityIndicatorView().then {
+        $0.center = uiView.center
+        $0.startAnimating()
+    }
+    
+    uiView.addSubview(spinner)
+    return uiView
 }
