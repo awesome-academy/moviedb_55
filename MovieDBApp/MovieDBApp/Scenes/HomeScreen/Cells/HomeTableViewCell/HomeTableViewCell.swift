@@ -12,6 +12,7 @@ import Reusable
 final class HomeTableViewCell: UITableViewCell, NibReusable {
     private var model: MovieSession!
     var onItemMovieTapped: ((Movie) -> Void)?
+    var onMoviesCategoryTapped: ((MovieCategory) -> Void)?
     
     @IBOutlet private weak var textMovieCategory: UILabel!
     @IBOutlet private weak var buttonSeeAll: UIButton!
@@ -41,6 +42,11 @@ final class HomeTableViewCell: UITableViewCell, NibReusable {
             $0.minimumLineSpacing = 20
         }
         collectionView.collectionViewLayout = layout
+    }
+    
+    
+    @IBAction func didTapGetMoviesCategory(_ sender: Any) {
+        onMoviesCategoryTapped?(model.category)
     }
     
     func configure(model: MovieSession) {
