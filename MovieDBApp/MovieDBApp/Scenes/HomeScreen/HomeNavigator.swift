@@ -9,6 +9,7 @@ import UIKit
 
 protocol HomeNavigatorType {
     func toDetailScreen(movie: Movie)
+    func toMoviesCategoryScreen(category: MovieCategory)
 }
 
 struct HomeNavigator: HomeNavigatorType {
@@ -16,6 +17,11 @@ struct HomeNavigator: HomeNavigatorType {
     
     func toDetailScreen(movie: Movie) {
         let vc = MovieDetailViewController.instance(navigationController: navigationController, movie: movie)
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func toMoviesCategoryScreen(category: MovieCategory) {
+        let vc = MoviesCategoryViewController.instance(navigationController: navigationController, category: category)
         navigationController.pushViewController(vc, animated: true)
     }
 }

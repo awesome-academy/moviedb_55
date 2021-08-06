@@ -17,11 +17,12 @@ struct HomeViewModel {
     struct Input {
         let loadTrigger: Driver<Void>
         let selectMovieTrigger: Driver<Movie>
+        let selectCategoryTrigger: Driver<MovieCategory>
     }
     
     struct Output {
         let movies: Driver<[MoviesSection]>
-        let selectedMovieId: Driver<Movie>
+        let voidDrivers: [Driver<Void>]
     }
     
     func transform(input: Input) -> Output {
@@ -76,7 +77,13 @@ struct HomeViewModel {
         
         let selectedMovieId = input.selectMovieTrigger
             .do(onNext: navigator.toDetailScreen(movie:))
+            .map { _ in }
         
-        return Output(movies: movies, selectedMovieId: selectedMovieId)
+        let selectedMovieCategory = input.selectCategoryTrigger
+            .do(onNext: navigator.toMoviesCategoryScreen(category:))
+            .map { _ in }
+        
+        return Output(movies: movies,
+                      voidDrivers: [selectedMovieId, selectedMovieCategory])
     }
 }

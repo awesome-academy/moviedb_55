@@ -28,6 +28,9 @@
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                         <color key="tintColor" systemColor="systemGrayColor"/>
                         <state key="normal" title="See all"/>
+                        <connections>
+                            <action selector="didTapGetMoviesCategory:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="xTK-yr-SB2"/>
+                        </connections>
                     </button>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="hHe-ic-110">
                         <rect key="frame" x="0.0" y="30" width="423" height="143"/>

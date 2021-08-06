@@ -18,6 +18,7 @@ final class HomeViewController: UIViewController {
     var viewModel: HomeViewModel!
     private var dataSource: DataSource!
     private let selectMovieTrigger = PublishSubject<Movie>()
+    private let selectCategoryTrigger = PublishSubject<MovieCategory>()
     
     @IBOutlet private weak var movieTableView: UITableView!
 
@@ -49,7 +50,8 @@ final class HomeViewController: UIViewController {
     private func bindViewModel() {
         let input = HomeViewModel.Input(
             loadTrigger: Driver.just(()),
-            selectMovieTrigger: selectMovieTrigger.asDriver(onErrorJustReturn: Movie())
+            selectMovieTrigger: selectMovieTrigger.asDriver(onErrorJustReturn: Movie()),
+            selectCategoryTrigger: selectCategoryTrigger.asDriver(onErrorJustReturn: .none)
         )
         
         let output = viewModel.transform(input: input)
@@ -59,9 +61,10 @@ final class HomeViewController: UIViewController {
             .drive(movieTableView.rx.items(dataSource: dataSource))
             .disposed(by: rx.disposeBag)
         
-        output.selectedMovieId
-            .drive()
-            .disposed(by: rx.disposeBag)
+        output.voidDrivers.forEach {
+            $0.drive()
+                .disposed(by: rx.disposeBag)
+        }
     }
 }
 
@@ -103,6 +106,9 @@ extension HomeViewController {
             cell.selectionStyle = .none
             cell.onItemMovieTapped = {
                 selectMovieTrigger.onNext($0)
+            }
+            cell.onMoviesCategoryTapped = {
+                selectCategoryTrigger.onNext($0)
             }
             cell.configure(model: model)
             return cell
