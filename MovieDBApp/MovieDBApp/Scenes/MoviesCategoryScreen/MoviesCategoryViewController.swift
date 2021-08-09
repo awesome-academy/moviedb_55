@@ -49,6 +49,7 @@ final class MoviesCategoryViewController: UIViewController {
         output.movies
             .do { [unowned self] _ in
                 numberOfPage += 1
+                categoryTableView.tableFooterView = nil
             }
             .drive(categoryTableView.rx.items) { tableView, index, movie in
                 let indexPath = IndexPath(item: index, section: 0)
@@ -87,6 +88,7 @@ extension MoviesCategoryViewController: UITableViewDelegate {
         let lastFrameTableView = (categoryTableView.contentSize.height - scrollView.frame.size.height + 50)
         
         if (position > lastFrameTableView) {
+            categoryTableView.tableFooterView = createSpinner(width: view.frame.size.width)
             loadMoreTrigger.onNext(numberOfPage)
         }
     }

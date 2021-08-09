@@ -56,6 +56,7 @@ final class SearchViewController: UIViewController {
                 if $0.isEmpty {
                     number = 1
                 }
+                searchTableView.tableFooterView = nil
             }
             .drive(searchTableView.rx.items) { tableView, index, movie in
                 let indexPath = IndexPath(item: index, section: 0)
@@ -69,7 +70,7 @@ final class SearchViewController: UIViewController {
             .drive()
             .disposed(by: rx.disposeBag)
         
-        output.moviesTemp.forEach {
+        output.moviesDriver.forEach {
             $0.drive()
                 .disposed(by: rx.disposeBag)
         }
@@ -103,10 +104,11 @@ extension SearchViewController: UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let position = scrollView.contentOffset.y
-        let lastFrameTableView = (searchTableView.contentSize.height - scrollView.frame.size.height + 20)
+        let lastFrameTableView = (searchTableView.contentSize.height - scrollView.frame.size.height + 50)
         
         if (position > lastFrameTableView) {
             number += 1
+            searchTableView.tableFooterView = createSpinner(width: view.frame.size.width)
             loadMoreTrigger.onNext(number)
         }
     }
